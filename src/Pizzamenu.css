@@ -1,0 +1,188 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fdfdfd;
+    color: #333;
+  }
+  
+  /* Main Container */
+  div {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  div header {
+    margin-bottom: 20px;
+    color: #2a9d8f;
+  }
+  
+  /* Title */
+  h1, header {
+    font-size: 2.5rem;
+    text-align: center;
+    animation: fadeInDown 2s ease-in-out;
+    color: #e63946;
+  }
+  h1 {
+    border-top: 1px solid #2a9d8f;
+    border-bottom: 1px solid #2a9d8f;
+    width: 30%;
+    margin: 1rem auto;
+  }
+  
+  /* Grid Layout */
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    list-style: none;
+    animation: fadeIn 1.5s ease-in-out;
+    padding: 0;
+  }
+  
+  /* Pizza Items */
+  li {
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  li:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Pizza Image */
+  li img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    animation: zoomIn 2s ease-in-out;
+  }
+  
+  /* Pizza Details */
+  li h2 {
+    font-size: 1.5rem;
+    margin: 15px 20px 10px;
+    color: #264653;
+  }
+  
+  li p {
+    margin: 0 20px 10px;
+    color: #6c757d;
+  }
+  
+  /* Price Styling */
+  li p:last-of-type {
+    font-weight: bold;
+    color: #2a9d8f;
+  }
+  
+  /* Sold Out Styling */
+  li.sold-out {
+    opacity: 0.5;
+  }
+  
+  li.sold-out h2 {
+    color: #e63946;
+  }
+  
+  li.sold-out img {
+    filter: grayscale(100%);
+  }
+  .p1, .p2 {
+    color: #580f1598;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 2rem; 
+    animation: zoomIn 2s ease-in-out;
+  }
+  .p2 {
+    margin: 1rem; 
+  }
+  .p3 {
+    color: rgb(181, 10, 104);
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    
+  }
+  .p3 span {
+    color: #2a9d8f;
+    margin-left: 1rem;
+    position: relative;
+    right: -10rem;
+
+  }
+
+  button {
+    background-color: #2a9d8f;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 1rem auto;
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+      width: 60%;
+    }
+    li {
+      border-radius: 5px;
+    }
+    div {
+      padding: 10px;
+    }
+
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  

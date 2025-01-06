@@ -1,0 +1,42 @@
+div .date{
+    padding: 20px;
+    background-color: #d00b0b4a;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 15%;
+    animation: fadeIn 1s;
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* .date {
+    font-size: 1.5em;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+} */
+
+.date span {
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    div .date {
+        /* width: 35%;
+         right: -70%; 
+        top: -3%; */
+        display: none;
+        font-size: 0.9rem;
+        width: 30%;
+        left: -2%;
+        
+    }
+}
+
+
+
