@@ -3,6 +3,8 @@ import "./Pizzamenu.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import Filter from "./Filter";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const pizzaData = [
     {
@@ -58,6 +60,25 @@ const pizzaData = [
 
 function Pizzamenu() {
     const [filter, setFilter] = React.useState("all");
+    const [selectedPizzas, setSelectedPizzas] = useState([]);
+  const navigate = useNavigate();
+
+  const handlePizzaSelection = (pizza) => {
+    if (selectedPizzas.includes(pizza)) {
+      setSelectedPizzas(selectedPizzas.filter((p) => p !== pizza));
+    } else {
+      setSelectedPizzas([...selectedPizzas, pizza]);
+    }
+  };
+
+  const handleOrderNow = () => {
+    if (selectedPizzas.length === 0) {
+      alert("Please select at least one pizza to proceed.");
+      return;
+    }
+    navigate("/process-order", { state: { selectedPizzas } });
+  };
+
 
     const filteredPizzas = pizzaData.filter((pizza) => {
         if (filter === "all") {
@@ -100,13 +121,16 @@ function Pizzamenu() {
             <h1>Pizza Menu</h1>
             <p className="p1">Authentic Italian pizza. 6 different pizzas to choose from.</p>
             <Filter filter={filter} setFilter={setFilter} />
-            <ul>
+            <ul className="pizza-list">
                 
         {filteredPizzas.map((pizza, index) => (
           <li
             key={index}
-            className={pizza.soldOut ? "sold-out" : ""}
+            className={`pizza-item ${pizza.soldOut ? "sold-out" : ""} ${
+                selectedPizzas.includes(pizza) ? "selected" : ""
+              }`}
             style={{ animationDelay: `${index * 1.2}s` }}
+            onClick={() => !pizza.soldOut && handlePizzaSelection(pizza)}
           >
             <img src={pizza.image} alt={pizza.name} />
             <h2>{pizza.name}</h2>
@@ -116,6 +140,9 @@ function Pizzamenu() {
           </li>
         ))}
             </ul>
+            <button className="order-button" onClick={handleOrderNow}>
+        Order Now
+      </button>
             <Footer />
     </div>
     );

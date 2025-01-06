@@ -1,0 +1,108 @@
+.order-processing {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .order-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .order-item {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .order-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .order-buttons {
+    margin-top: 20px;
+  }
+  
+  .confirm-button,
+  .cancel-button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .confirm-button {
+    background-color: #38b000;
+    color: white;
+  }
+  
+  .confirm-button:hover {
+    background-color: #2d8600;
+  }
+  
+  .cancel-button {
+    background-color: #e63946;
+    color: white;
+  }
+  
+  .cancel-button:hover {
+    background-color: #d62828;
+  }
+  .location {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .location h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .error {
+    color: red;
+    font-size: 1rem;
+  }
+  
+  .leaflet-container {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    margin: 10px auto;
+  }
+  
+  .address-input {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .address-input input {
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .address-input button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .address-input button:hover {
+    background-color: #218838;
+  }
+  
+  
+  

@@ -54,7 +54,13 @@
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
   }
+  .pizza-item.selected {
+    border-color: #e63946;
+    transform: scale(1.05);
+  }
+  
   
   li:hover {
     transform: translateY(-20px);
@@ -90,6 +96,7 @@
   /* Sold Out Styling */
   li.sold-out {
     opacity: 0.5;
+    pointer-events: none;
   }
   
   li.sold-out h2 {
@@ -124,17 +131,23 @@
 
   }
 
-  button {
-    background-color: #2a9d8f;
-    color: #fff;
-    border: none;
+  .order-button {
+    display: block;
+    margin: 20px auto;
     padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #e63946;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
-    display: block;
-    margin: 1rem auto;
+    transition: background-color 0.3s ease;
   }
+  
+  .order-button:hover {
+    background-color: #d62828;
+  }
+  
   
   /* Responsive Styling */
   @media (max-width: 768px) {
