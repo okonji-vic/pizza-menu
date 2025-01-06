@@ -4,6 +4,8 @@
     gap: 10px;
     justify-content: center;
     margin-bottom: 20px;
+    background-color: #196ec2;
+    box-shadow: 15px 15px 15px 5px rgba(183, 14, 14, 0.164);
   }
   
   .filter-button {
