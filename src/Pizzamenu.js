@@ -89,6 +89,7 @@ function Pizzamenu() {
         } else if (filter === "egg-free") {
             return !pizza.ingredients.includes("eggs");
         }
+        return pizzaData;
 
     }
     );

@@ -6,6 +6,7 @@
     margin-bottom: 20px;
     background-color: #196ec2;
     box-shadow: 15px 15px 15px 5px rgba(183, 14, 14, 0.164);
+    animation: zoomIn 3s ease-in-out;
   }
   
   .filter-button {
