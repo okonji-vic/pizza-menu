@@ -1,42 +1,94 @@
-div .date{
-    padding: 20px;
-    background-color: #d00b0b4a;
-    border-radius: 5px;
-    margin: 0 auto;
-    width: 15%;
-    animation: fadeIn 1s;
-    display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
-    position: fixed;
+/* Overall container styling */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #ff5722, #ff8a50);
+    color: #fff;
+    animation: fadeIn 1s ease-in-out;
+    position: sticky;
     top: 0;
-    left: 0;
+    z-index: 1000;
 }
 
-/* .date {
-    font-size: 1.5em;
-    color: #333;
-    margin: 0;
-    padding: 0;
+/* Logo section */
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+}
+
+.brand-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Navigation bar */
+.navigation .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navigation .nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navigation .nav-links li a:hover {
+    color: #ffccbc;
+}
+
+/* Header banner */
+.header-banner {
     text-align: center;
-    font-family: 'Roboto', sans-serif;
-} */
-
-.date span {
-    margin-top: 0.5rem;
+    /* background: url('starter/pizzas/logo.webp') no-repeat center center/cover; */
+    color: #fff;
+    padding: 3rem 1rem;
+    animation: slideDown 1s ease-in-out;
 }
 
-@media (max-width: 768px) {
-    div .date {
-        /* width: 35%;
-         right: -70%; 
-        top: -3%; */
-        display: none;
-        font-size: 0.9rem;
-        width: 30%;
-        left: -2%;
-        
+.header-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: rgba(16, 160, 16, 0.911);
+    border: none;
+    width: 100%;
+}
+
+.header-date {
+    font-size: 1rem;
+    font-style: italic;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
 
-
-
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
