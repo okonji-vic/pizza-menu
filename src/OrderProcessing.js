@@ -137,8 +137,14 @@ function OrderProcessing() {
   return (
     <div className="order-processing">
       <h1>Your Order</h1>
-      {selectedPizzas.length === 0 ? (
-        <p>No pizzas selected. Please go back and add some pizzas to your order.</p>
+          {selectedPizzas.length === 0 ? (
+              <>
+              <p>No pizzas selected. Please go back and add some pizzas to your order.</p>
+              <button className="cancel-button" onClick={handleCancelOrder}>
+                      go back
+                    </button>
+                </>
+              
       ) : (
         <div>
           <ul className="order-list">
