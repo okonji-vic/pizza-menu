@@ -1,0 +1,39 @@
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter-button {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .filter-button.active {
+    background-color: #e63946;
+    color: #fff;
+    border-color: #e63946;
+    transform: scale(1.1);
+  }
+  
+  .filter-button:hover {
+    background-color: #e63946;
+    color: #fff;
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 768px) {
+    .filter-button {
+      font-size: 0.8rem;
+      padding: 8px 15px;
+    }
+  }
+  

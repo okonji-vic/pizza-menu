@@ -2,6 +2,7 @@ import React from "react";
 import "./Pizzamenu.css";
 import Header from "./Header";
 import Footer from "./Footer";
+import Filter from "./Filter";
 
 const pizzaData = [
     {
@@ -56,13 +57,51 @@ const pizzaData = [
   
 
 function Pizzamenu() {
+    const [filter, setFilter] = React.useState("all");
+
+    const filteredPizzas = pizzaData.filter((pizza) => {
+        if (filter === "all") {
+            return pizzaData;
+        } else if (filter === "available") {
+            return !pizza.soldOut;
+        } else if (filter === "unavailable") {
+            return pizza.soldOut;
+        } else if (filter === "cheap") {
+            return pizza.price < 12;
+        } else if (filter === "expensive") {
+            return pizza.price >= 12;
+        } else if (filter === "vegetarian") {
+            return pizza.ingredients.includes("mushrooms") || pizza.ingredients.includes("spinach");
+        } else if (filter === "meaty") {
+            return pizza.ingredients.includes("pepperoni") || pizza.ingredients.includes("ham");
+        } else if (filter === "fishy") {
+            return pizza.ingredients.includes("anchovies");
+        } else if (filter === "spicy") {
+            return pizza.ingredients.includes("jalapeno");
+        } else if (filter === "vegan") {
+            return !pizza.ingredients.includes("mozarella") && !pizza.ingredients.includes("ham") && !pizza.ingredients.includes("pepperoni") && !pizza.ingredients.includes("burrata");
+        } else if (filter === "gluten-free") {
+            return !pizza.ingredients.includes("bread");
+        } else if (filter === "lactose-free") {
+            return !pizza.ingredients.includes("mozarella") && !pizza.ingredients.includes("ricotta") && !pizza.ingredients.includes("burrata");
+        } else if (filter === "nut-free") {
+            return !pizza.ingredients.includes("walnuts");
+        } else if (filter === "egg-free") {
+            return !pizza.ingredients.includes("eggs");
+        }
+
+    }
+    );
     return (
         <div>
             <Header />
+            
             <h1>Pizza Menu</h1>
             <p className="p1">Authentic Italian pizza. 6 different pizzas to choose from.</p>
-      <ul>
-        {pizzaData.map((pizza, index) => (
+            <Filter filter={filter} setFilter={setFilter} />
+            <ul>
+                
+        {filteredPizzas.map((pizza, index) => (
           <li
             key={index}
             className={pizza.soldOut ? "sold-out" : ""}
