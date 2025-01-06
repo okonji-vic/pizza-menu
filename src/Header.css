@@ -6,7 +6,6 @@
     padding: 1rem 2rem;
     background: linear-gradient(135deg, #ff5722, #ff8a50);
     color: #fff;
-    animation: fadeIn 1s ease-in-out;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -32,90 +31,71 @@
 }
 
 /* Navigation bar */
-.navigation .nav-links {
+.navigation {
+    position: relative;
+}
+
+.nav-links {
     list-style: none;
     display: flex;
     gap: 1.5rem;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.navigation .nav-links li a {
+.nav-links li a {
     text-decoration: none;
     color: #fff;
     font-size: 1rem;
     transition: color 0.3s ease;
 }
 
-.navigation .nav-links li a:hover {
+.nav-links li a:hover {
     color: #ffccbc;
 }
 
-/* Header banner */
-.header-banner {
-    text-align: center;
-    /* background: url('starter/pizzas/logo.webp') no-repeat center center/cover; */
-    color: #fff;
-    padding: 3rem 1rem;
-    animation: slideDown 1s ease-in-out;
+/* Mobile Menu (Hamburger) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1010;
 }
 
-.header-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: rgba(16, 160, 16, 0.911);
-    border: none;
-    width: 100%;
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
 }
 
-.header-date {
-    font-size: 1rem;
-    font-style: italic;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        padding: 1rem 0;
+        transform: translateY(-100%);
         opacity: 0;
+        visibility: hidden;
     }
-    to {
-        opacity: 1;
-    }
-}
 
-@keyframes slideDown {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
+    .nav-links.active {
         transform: translateY(0);
         opacity: 1;
-    }
-}
-
-/* Media queries */
-@media (max-width: 768px) {
-    .header-container {
-        padding: 1rem;
+        visibility: visible;
     }
 
-    .logo-section {
-        margin-right: auto;
+    .nav-links li {
+        text-align: center;
+        margin: 0.5rem 0;
     }
 
-    .brand-name {
-        font-size: 1.2rem;
-    }
-
-    .navigation .nav-links {
-        display: none;
-    }
-
-    .header-banner {
-        padding: 2rem 1rem;
-    }
-
-    .header-title {
-        font-size: 2rem;
+    .hamburger {
+        display: flex;
     }
 }
