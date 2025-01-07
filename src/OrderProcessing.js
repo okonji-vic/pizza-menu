@@ -16,7 +16,7 @@ L.Icon.Default.mergeOptions({
 
 // Delivery zone center and radius (in meters)
 const deliveryZone = {
-  center: { lat: 37.7749, lng: -122.4194 }, // Example: San Francisco
+  center: { lat: 6.3349, lng: 5.6037 }, // Benin City, Nigeria
   radius: 10000, // 10 km
 };
 
