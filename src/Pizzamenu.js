@@ -118,7 +118,7 @@ function Pizzamenu() {
             
             <PizzaGallery />
             
-            <h1>Pizza Menu</h1>
+            <h1 className="h1">Pizza Menu</h1>
             <p className="p1">Authentic Italian pizza. 6 different pizzas to choose from.</p>
             <Filter filter={filter} setFilter={setFilter} />
             <ul className="pizza-list">

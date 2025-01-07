@@ -23,7 +23,7 @@ function PizzaGallery() {
 
   return (
     <div className="pizza-gallery">
-      <h1>Pizzallery</h1>
+      <h1 className="h1">Pizzallery</h1>
       <p>Check out our pizzas!</p>
       <div className="image-container">
         <img

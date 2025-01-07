@@ -127,7 +127,7 @@
   
   /* Responsive Styling */
   @media (max-width: 768px) {
-    h1 {
+    .h1 {
       font-size: 2rem;
       width: 60%;
     }
