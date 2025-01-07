@@ -1,0 +1,75 @@
+/* General styles for the menu component */
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f9a825, #ff6f00);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.menu-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.menu-description {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 2s ease-in-out 1s;
+}
+
+/* Button styling */
+.menu-button {
+    background-color: #fff;
+    color: #ff6f00;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    animation: fadeIn 2s ease-in-out 2s;
+}
+
+.menu-button:hover {
+    background-color: #ff6f00;
+    color: #fff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.menu-link {
+    text-decoration: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .menu-title {
+        font-size: 2rem;
+    }
+    .menu-description {
+        font-size: 1.2rem;
+    }
+    .menu-button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
