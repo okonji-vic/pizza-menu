@@ -1,7 +1,5 @@
 import React from "react";
 import "./Pizzamenu.css";
-import Header from "./Header";
-import Footer from "./Footer";
 import Filter from "./Filter";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
