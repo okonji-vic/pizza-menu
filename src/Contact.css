@@ -1,0 +1,147 @@
+/* General Styling */
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    background: #fff3e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-title {
+    font-size: 2.5rem;
+    color: #e63946;
+    margin-bottom: 1rem;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.contact-description {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Contact Details */
+.contact-details {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    margin: 1rem;
+    font-size: 1.1rem;
+}
+
+.contact-item h3 {
+    color: #e63946;
+    margin-bottom: 0.5rem;
+}
+
+/* Contact Form */
+.contact-form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.contact-form h2 {
+    font-size: 2rem;
+    color: #e63946;
+    margin-bottom: 1.5rem;
+}
+
+.contact-input,
+.contact-textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: border 0.3s;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+    border: 1px solid #e63946;
+    outline: none;
+}
+
+.contact-button {
+    padding: 0.8rem 2rem;
+    background: #e63946;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.contact-button:hover {
+    background: #b71c1c;
+}
+/* Error and Success Messages */
+.error-message {
+    color: #e63946;
+    font-size: 0.9rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.success-message {
+    color: #4caf50;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+/* Error Styling */
+.error-border {
+    border: 1px solid #e63946 !important;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-item {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

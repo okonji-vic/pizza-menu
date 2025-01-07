@@ -1,0 +1,97 @@
+/* General styling */
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(to bottom, #fff7e6, #ffd9a1);
+    min-height: 100vh;
+}
+
+.about-content {
+    max-width: 800px;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes buttonBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Text styling */
+.about-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #d35400;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.about-text {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.highlight {
+    color: #d35400;
+    font-weight: bold;
+}
+
+/* Button styling */
+.about-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #d35400;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: buttonBounce 2s infinite;
+    transition: all 0.3s ease;
+}
+
+.about-button:hover {
+    background-color: #e67e22;
+    transform: scale(1.05);
+}
+
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .about-text {
+        font-size: 1rem;
+    }
+
+    .about-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}

@@ -117,7 +117,7 @@ function Pizzamenu() {
     );
     return (
         <div>
-            <Header />
+            
             <PizzaGallery />
             
             <h1>Pizza Menu</h1>
@@ -144,8 +144,7 @@ function Pizzamenu() {
             </ul>
             <button className="order-button" onClick={handleOrderNow}>
         Order Now
-      </button>
-            <Footer />
+      </button>     
     </div>
     );
 }
