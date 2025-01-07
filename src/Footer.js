@@ -4,7 +4,7 @@ import "./Footer.css";
 function Footer() {
     return (
         <footer>
-            <p className="p2">Click on the pizza to see the ingredients</p>
+            {/* <p className="p2">Click on the pizza to see the ingredients</p> */}
             
             {new Date().getHours() >= 12 && new Date().getHours() <= 18? <p className="p3">Good afternoon</p> : null}
             {new Date().getHours() <= 12 ? <p className="p3">Good morning</p> : null}

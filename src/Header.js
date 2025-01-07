@@ -35,9 +35,9 @@ function Header() {
             </div>
             <header className="header-banner">
                 <h1 className="header-title">Fast Pizza Delivery</h1>
-                <p className="header-date">
+                {/* <p className="header-date">
                     <span>{new Date().toLocaleDateString()}</span>
-                </p>
+                </p> */}
             </header>
         </>
     );
