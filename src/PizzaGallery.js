@@ -12,14 +12,31 @@ const pizzaImages = [
 
 function PizzaGallery() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % pizzaImages.length);
-    }, 5000); // Change image every 5 seconds
+    if (!isPaused) {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % pizzaImages.length);
+      }, 5000); // Change image every 5 seconds
+      return () => clearInterval(interval); // Cleanup on component unmount
+    }
+  }, [isPaused]);
 
-    return () => clearInterval(interval); // Cleanup on component unmount
-  }, []);
+  const handleNext = () => {
+    setIsPaused(true);
+    setCurrentIndex((currentIndex + 1) % pizzaImages.length);
+  };
+
+  const handlePrev = () => {
+    setIsPaused(true);
+    setCurrentIndex((currentIndex - 1 + pizzaImages.length) % pizzaImages.length);
+  };
+
+  const handleBulletClick = (index) => {
+    setIsPaused(true);
+    setCurrentIndex(index);
+  };
 
   return (
     <div className="pizza-gallery">
@@ -31,12 +48,19 @@ function PizzaGallery() {
           alt={pizzaImages[currentIndex].alt}
           className="gallery-image"
         />
+        <button className="prev-button" onClick={handlePrev}>
+          &#8249;
+        </button>
+        <button className="next-button" onClick={handleNext}>
+          &#8250;
+        </button>
       </div>
       <div className="bullet-list">
         {pizzaImages.map((_, index) => (
           <span
             key={index}
             className={`bullet ${index === currentIndex ? "active" : ""}`}
+            onClick={() => handleBulletClick(index)}
           >
             ●
           </span>

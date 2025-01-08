@@ -1,39 +1,98 @@
 .pizza-gallery {
-    text-align: center;
-    font-family: Arial, sans-serif;
+  text-align: center;
+  position: relative;
+  background-color: #f9f9f9;
+  padding: 2rem;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+.prev-button:hover,
+.next-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.bullet-list {
+  margin-top: 1rem;
+}
+
+.bullet {
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.bullet.active {
+  color: #ff5722;
+}
+
+.bullet:hover {
+  color: #ff5722;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
   }
-  
-  .image-container {
-    margin: 20px auto;
-    width: 80%;
-    max-width: 600px;
-    position: relative;
+  to {
+      opacity: 1;
   }
-  
-  .gallery-image {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    transition: opacity 0.5s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .prev-button,
+  .next-button {
+      width: 30px;
+      height: 30px;
+      font-size: 1.2rem;
   }
-  
-  .bullet-list {
-    margin-top: 15px;
-  }
-  
+
   .bullet {
-    font-size: 20px;
-    color: #ccc;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: color 0.3s ease;
+      font-size: 1.2rem;
   }
-  
-  .bullet.active {
-    color: #ff6347; /* Active bullet color (e.g., tomato) */
-  }
-  
-  .bullet:hover {
-    color: #ff6347; /* Highlight color on hover */
-  }
-  
+}
