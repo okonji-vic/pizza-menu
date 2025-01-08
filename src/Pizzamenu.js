@@ -135,7 +135,7 @@ function Pizzamenu() {
             <img src={pizza.image} alt={pizza.name} />
             <h2>{pizza.name}</h2>
             <p>{pizza.ingredients}</p>
-            <p>Price: {pizza.price}€</p>
+            <p>Price: {pizza.price + 3}€</p>
             {pizza.soldOut && <p>Sold out</p>}
           </li>
         ))}
