@@ -14,7 +14,7 @@ function About() {
                 <Link to="/">
                     <button className="about-button">Go Back</button>
                 </Link>
-
+                
             </div>
         </div>
     );

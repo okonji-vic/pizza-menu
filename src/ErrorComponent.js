@@ -1,12 +1,13 @@
 import React from "react";
+import "./Custom404.css";
 
 
 // FallbackComponent to handle errors
 function FallbackComponent({ error, resetErrorBoundary }) {
   return (
-    <div role="alert">
-      <h1>Something went wrong:</h1>
-      <pre>{error.message}</pre>
+    <div role="alert" className="div">
+      <h2>Something went wrong: {error.message}</h2>
+      {/* <pre>{error.message}</pre> */}
       <button onClick={resetErrorBoundary}>Try Again</button>
           {console.log(error)} {/* Log error for debugging */}
           <button onClick={() => (window.location.href = "/")}>

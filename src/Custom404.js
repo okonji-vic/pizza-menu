@@ -4,8 +4,8 @@ import './Custom404.css';
 
 const Custom404 = () => {
     return (
-        <div>
-        <h1>404 - Page Not Found</h1>
+        <div className="div">
+        <h1 id="h1">404 - Page Not Found</h1>
         <Link to="/">
                 <button>Go back to home</button>
         </Link>
