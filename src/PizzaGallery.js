@@ -25,11 +25,13 @@ function PizzaGallery() {
 
   const handleNext = () => {
     // setIsPaused(true);
+    setIsPaused(false);
     setCurrentIndex((currentIndex + 1) % pizzaImages.length);
   };
 
   const handlePrev = () => {
     // setIsPaused(true);
+    setIsPaused(false);
     setCurrentIndex((currentIndex - 1 + pizzaImages.length) % pizzaImages.length);
   };
 
