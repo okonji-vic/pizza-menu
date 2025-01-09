@@ -12,7 +12,7 @@ function About() {
                 </p>
                 <p className="about-text">Come visit us today and experience the best pizza in town!</p>
                 <Link to="/">
-    <button className="about-button">Go Back</button>
+                    <button className="about-button">Go Back</button>
                 </Link>
 
             </div>

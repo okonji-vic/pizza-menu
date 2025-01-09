@@ -18,23 +18,23 @@ function PizzaGallery() {
     if (!isPaused) {
       const interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % pizzaImages.length);
-      }, 5000); // Change image every 5 seconds
+      }, 4000); // Change image every 4 seconds
       return () => clearInterval(interval); // Cleanup on component unmount
     }
   }, [isPaused]);
 
   const handleNext = () => {
-    setIsPaused(true);
+    // setIsPaused(true);
     setCurrentIndex((currentIndex + 1) % pizzaImages.length);
   };
 
   const handlePrev = () => {
-    setIsPaused(true);
+    // setIsPaused(true);
     setCurrentIndex((currentIndex - 1 + pizzaImages.length) % pizzaImages.length);
   };
 
   const handleBulletClick = (index) => {
-    setIsPaused(true);
+    // setIsPaused(true);
     setCurrentIndex(index);
   };
 
