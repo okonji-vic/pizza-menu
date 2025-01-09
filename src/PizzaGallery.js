@@ -34,7 +34,7 @@ function PizzaGallery() {
   };
 
   const handleBulletClick = (index) => {
-    // setIsPaused(true);
+    setIsPaused(true);
     setCurrentIndex(index);
   };
 

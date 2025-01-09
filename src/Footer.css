@@ -56,7 +56,8 @@ footer p:last-of-type {
 
 @media (max-width: 568px) {
   .p3 span {
-    bottom: 6%;
+    bottom: 5.5%;
+    left: -8px;
   }
   
 }

@@ -87,13 +87,7 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .prev-button,
-  .next-button {
-      width: 30px;
-      height: 30px;
-      font-size: 1.2rem;
-  }
-
+  
   .bullet {
       font-size: 1.2rem;
   }
