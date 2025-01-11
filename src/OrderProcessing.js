@@ -58,10 +58,11 @@ function OrderProcessing() {
 
   const handleConfirmOrder = () => {
     if (!isInDeliveryZone) {
-      alert("Your location or address is outside our delivery zone. Please check and try again.");
+      // alert("Your location or address is outside our delivery zone. Please check and try again.");
       return;
     }
     alert("Thank you for your order! It is being processed.");
+    
     navigate("/"); // Navigate back to the home page after confirmation
   };
 
@@ -141,14 +142,29 @@ function OrderProcessing() {
             />
             <button onClick={handleAddressSubmit}>Submit Address</button>
           </div>
-          {!isInDeliveryZone && <p className="error">You are outside our delivery zone.</p>}
-          <div className="order-buttons">
-            <button className="confirm-button" onClick={handleConfirmOrder} disabled={!isInDeliveryZone}>
+          {/* {!isInDeliveryZone && <p className="error">You are outside our delivery zone.</p>} */}
+            <div className="order-buttons">
+              {isInDeliveryZone ? (
+                <button className="confirm-button" onClick={handleConfirmOrder}>
+                  Confirm Order
+                </button>
+              ) : (
+                  <>
+                    <p className="error">Your location is outside our delivery zone.</p>
+                <button className="confirm-button" disabled>
+                  Confirm Order
+                  </button>
+                    
+                    </>
+              )}
+            {/* <button className="confirm-button" onClick={handleConfirmOrder} disabled={!isInDeliveryZone}>
               Confirm Order
-            </button>
+            </button> */}
             <button className="cancel-button" onClick={handleCancelOrder}>
               Cancel
-            </button>
+              </button>
+              
+              
           </div>
         </div>
       )}

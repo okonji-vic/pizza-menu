@@ -72,8 +72,9 @@ function Pizzamenu() {
 
   const handleOrderNow = () => {
     if (selectedPizzas.length === 0) {
-      alert("Please select at least one pizza to proceed.");
+      
       return;
+
     }
     navigate("/process-order", { state: { selectedPizzas } });
   };
@@ -139,10 +140,15 @@ function Pizzamenu() {
             {pizza.soldOut && <p>Sold out</p>}
           </li>
         ))}
-            </ul>
+        </ul>
+        {new Date().getHours() >= 11 && <div>
+          {selectedPizzas.length === 0 ? <p className="p2">Select a pizza to order</p> : <p className="p2">Click on the pizza to remove it from your order</p>}  
             <button className="order-button" onClick={handleOrderNow}>
         Order Now
-      </button>     
+        </button>
+        </div>}
+        
+      
     </div>
     );
 }
