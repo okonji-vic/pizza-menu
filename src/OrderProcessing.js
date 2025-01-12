@@ -66,6 +66,7 @@ function OrderProcessing() {
       return;
     }
     alert("Thank you for your order! It is being processed.");
+    // return <p>Thank you for your order! It is being processed.</p>;
     navigate("/");
   };
 
@@ -78,9 +79,16 @@ function OrderProcessing() {
       setError("Please enter a valid address.");
       return;
     }
-    const mockAddressLocation = deliveryZone.center; // Replace with real geocoding
-    setUserLocation(mockAddressLocation);
-    checkDeliveryZone(mockAddressLocation);
+    // const mockAddressLocation = deliveryZone.center; // Replace with real geocoding
+    // setUserLocation(mockAddressLocation);
+    // checkDeliveryZone(mockAddressLocation);
+    const addressLocation = {
+      lat: deliveryZone.center.lat + Math.random() / 100,
+      lng: deliveryZone.center.lng + Math.random() / 100,
+    };
+    setUserLocation(addressLocation);
+    checkDeliveryZone(addressLocation);
+     
   };
 
   const handleQuantityChange = (index, newQuantity) => {
