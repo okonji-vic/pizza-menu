@@ -111,9 +111,9 @@ function Pizzamenu() {
             return !pizza.ingredients.includes("eggs");
         }
         return pizzaData;
-
-    }
+    }   
     );
+  const isOpen = new Date().getHours() >= 11 && new Date().getHours() < 23;
     return (
         <div>
             
@@ -141,11 +141,11 @@ function Pizzamenu() {
           </li>
         ))}
         </ul>
-        {new Date().getHours() >= 11 && <div>
-          {selectedPizzas.length === 0 ? <p className="p2">Select a pizza to order</p> : <p className="p2">Click on the pizza to remove it from your order</p>}  
-            <button className="order-button" onClick={handleOrderNow}>
-        Order Now
-        </button>
+        {isOpen && <div>
+          {selectedPizzas.length === 0 ? <p className="p2">Select a pizza to order</p> : <p className="p2">Click on the pizza to remove it from your order</p>}
+          <button className="order-button" onClick={handleOrderNow}>
+            Order Now
+          </button>
         </div>}
         
       

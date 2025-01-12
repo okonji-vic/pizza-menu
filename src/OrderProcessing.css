@@ -104,6 +104,61 @@
   .address-input button:hover {
     background-color: #218838;
   }
+  .quantity-control {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
   
+  .quantity-control label {
+    margin-right: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .quantity-control input {
+    width: 60px;
+    padding: 5px;
+    font-size: 1rem;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .quantity-control input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  .quantity-control input::-webkit-inner-spin-button,
+  .quantity-control input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .quantity-control input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  
+  @media (max-width: 768px) {
+    .quantity-control {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .quantity-control label {
+      margin-bottom: 5px;
+    }
+  
+    .quantity-control input {
+      width: 30%;
+      
+    }
+  }
+   
   
   

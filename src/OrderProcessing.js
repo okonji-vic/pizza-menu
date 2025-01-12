@@ -24,6 +24,11 @@ function OrderProcessing() {
   const location = useLocation();
   const navigate = useNavigate();
   const selectedPizzas = location.state?.selectedPizzas || [];
+
+  // Add quantities to selected pizzas
+  const [pizzasWithQuantities, setPizzasWithQuantities] = useState(
+    selectedPizzas.map((pizza) => ({ ...pizza, quantity: 1 }))
+  );
   const [userLocation, setUserLocation] = useState(null);
   const [address, setAddress] = useState("");
   const [error, setError] = useState(null);
@@ -40,7 +45,7 @@ function OrderProcessing() {
           setUserLocation(location);
           checkDeliveryZone(location);
         },
-        (err) => {
+        () => {
           setError("Unable to fetch your location. Please enable location services.");
         }
       );
@@ -58,16 +63,14 @@ function OrderProcessing() {
 
   const handleConfirmOrder = () => {
     if (!isInDeliveryZone) {
-      // alert("Your location or address is outside our delivery zone. Please check and try again.");
       return;
     }
     alert("Thank you for your order! It is being processed.");
-    
-    navigate("/"); // Navigate back to the home page after confirmation
+    navigate("/");
   };
 
   const handleCancelOrder = () => {
-    navigate("/"); // Navigate back to the home page
+    navigate("/");
   };
 
   const handleAddressSubmit = () => {
@@ -75,33 +78,53 @@ function OrderProcessing() {
       setError("Please enter a valid address.");
       return;
     }
-    // For simplicity, use deliveryZone center as address coordinates (mock geocoding)
-    const mockAddressLocation = deliveryZone.center; // Replace this with real geocoding
+    const mockAddressLocation = deliveryZone.center; // Replace with real geocoding
     setUserLocation(mockAddressLocation);
     checkDeliveryZone(mockAddressLocation);
   };
-  const totalPrice = selectedPizzas.reduce((total, pizza) => total + pizza.price, 0);
+
+  const handleQuantityChange = (index, newQuantity) => {
+    setPizzasWithQuantities((prev) =>
+      prev.map((pizza, i) =>
+        i === index ? { ...pizza, quantity: newQuantity } : pizza
+      )
+    );
+  };
+
+  const totalPrice = pizzasWithQuantities.reduce(
+    (total, pizza) => total + pizza.price * pizza.quantity,
+    0
+  );
 
   return (
     <div className="order-processing">
       <h1>Your Order</h1>
-          {selectedPizzas.length === 0 ? (
-              <>
-              <p>No pizzas selected. Please go back and add some pizzas to your order.</p>
-              <button className="cancel-button" onClick={handleCancelOrder}>
-                      go back
-                    </button>
-                </>
-              
+      {pizzasWithQuantities.length === 0 ? (
+        <>
+          <p>No pizzas selected. Please go back and add some pizzas to your order.</p>
+          <button className="cancel-button" onClick={handleCancelOrder}>
+            Go Back
+          </button>
+        </>
       ) : (
         <div>
           <ul className="order-list">
-            {selectedPizzas.map((pizza, index) => (
+            {pizzasWithQuantities.map((pizza, index) => (
               <li key={index} className="order-item">
                 <img src={pizza.image} alt={pizza.name} />
                 <h2>{pizza.name}</h2>
                 <p>{pizza.ingredients}</p>
                 <p>Price: {pizza.price}€</p>
+                <div className="quantity-control">
+                  <label htmlFor={`quantity-${index}`}>Quantity:</label>
+                  <input
+                    type="number"
+                    id={`quantity-${index}`}
+                    min="1"
+                    value={pizza.quantity}
+                    onChange={(e) => handleQuantityChange(index, Math.max(1, +e.target.value))}
+                  />
+                </div>
               </li>
             ))}
           </ul>
@@ -130,8 +153,8 @@ function OrderProcessing() {
             ) : (
               <p>Fetching your location...</p>
             )}
-            </div>
-            <p className="total">Total: {totalPrice}€</p>
+          </div>
+          <p className="total">Total: {totalPrice.toFixed(2)}€</p>
           <div className="address-input">
             <h2>Enter Your Address</h2>
             <input
@@ -142,29 +165,22 @@ function OrderProcessing() {
             />
             <button onClick={handleAddressSubmit}>Submit Address</button>
           </div>
-          {/* {!isInDeliveryZone && <p className="error">You are outside our delivery zone.</p>} */}
-            <div className="order-buttons">
-              {isInDeliveryZone ? (
-                <button className="confirm-button" onClick={handleConfirmOrder}>
-                  Confirm Order
-                </button>
-              ) : (
-                  <>
-                    <p className="error">Your location is outside our delivery zone.</p>
+          <div className="order-buttons">
+            {isInDeliveryZone ? (
+              <button className="confirm-button" onClick={handleConfirmOrder}>
+                Confirm Order
+              </button>
+            ) : (
+              <>
+                <p className="error">Your location is outside our delivery zone.</p>
                 <button className="confirm-button" disabled>
                   Confirm Order
-                  </button>
-                    
-                    </>
-              )}
-            {/* <button className="confirm-button" onClick={handleConfirmOrder} disabled={!isInDeliveryZone}>
-              Confirm Order
-            </button> */}
+                </button>
+              </>
+            )}
             <button className="cancel-button" onClick={handleCancelOrder}>
               Cancel
-              </button>
-              
-              
+            </button>
           </div>
         </div>
       )}
