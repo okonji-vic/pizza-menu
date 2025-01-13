@@ -16,6 +16,8 @@
     font-weight: bold;
     margin-bottom: 1rem;
     animation: fadeIn 2s ease-in-out;
+    color: darkcyan;
+    
 }
 
 .menu-description {

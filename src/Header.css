@@ -89,7 +89,7 @@
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: green;
+  color: green !important;
   border: none;
   width: 100%;
 }

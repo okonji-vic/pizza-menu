@@ -27,13 +27,15 @@
     font-size: 2.5rem;
     text-align: center;
     animation: fadeInDown 2s ease-in-out;
-    color: #e63946;
+    
   }
-  h1 {
+  .h1, h1 {
     border-top: 1px solid #2a9d8f;
     border-bottom: 1px solid #2a9d8f;
     width: 30%;
     margin: 1rem auto;
+    color: #e63946 ;
+    
   }
   
   /* Grid Layout */
@@ -55,6 +57,9 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
+    /* animation: fadeIn 1.5s ease-in-out;
+    opacity: 0;
+    animation-fill-mode: forwards; */
   }
   .pizza-item.selected {
     border-color: #e63946;
@@ -95,8 +100,11 @@
   
   /* Sold Out Styling */
   li.sold-out {
-    opacity: 0.5;
+    /* animation: fadeIn 1.5s ease-in-out;
     pointer-events: none;
+    animation-fill-mode: none; */
+    opacity: 0.5;
+    
   }
   
   li.sold-out h2 {
